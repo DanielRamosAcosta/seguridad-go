@@ -1,5 +1,7 @@
 # Práctica 1: Cifrado de Vernam
 
+## Enunciado
+
 **Objetivo**: Implementar el cifrado de Vernam.
 
 **Desarrollo**:
@@ -35,3 +37,17 @@ Utiliza código ASCII para pasar de letras a bytes y viceversa, cuando se trate 
 * Salida:
 * Mensaje original en binario: `0101010001010101`
 * Mensaje original: `TU`
+
+## Desarrollo
+
+Para ejecutar las pruebas:
+
+```
+ginkgo './...'
+```
+
+Para ejecutar el programa principal
+
+```
+go run ./cmd/main.go
+```

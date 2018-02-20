@@ -17,18 +17,6 @@ var _ = Describe("Utils", func() {
 		})
 	})
 	Describe("BinaryStrToBytes", func() {
-		Measure("converts a binary string into a byte array", func(b Benchmarker) {
-			const str = "010111000100111110011010"
-			expectedBytes := []byte{0x5C, 0x4F, 0x9A}
-			//resultBytes := utils.BinaryStrToBytes(str)
-
-			runtime := b.Time("runtime", func() {
-				resultBytes := utils.BinaryStrToBytes(str)
-				Expect(resultBytes).To(Equal(expectedBytes))
-			})
-
-			Ω(runtime.Seconds()).Should(BeNumerically("<", 0.2), "SomethingHard() shouldn't take too long.")
-		}, 10)
 		It("converts a binary string into a byte array", func() {
 			const str = "010111000100111110011010"
 			expectedBytes := []byte{0x5C, 0x4F, 0x9A}

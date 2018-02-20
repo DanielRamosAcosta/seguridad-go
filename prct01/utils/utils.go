@@ -41,15 +41,8 @@ func BinaryStrToBytes(str string) []byte {
  */
 func BytesToBinaryStr(bytes []byte) string {
 	var binaryStr string
-
 	for _, n := range bytes {
-		rawBinaryStr := fmt.Sprintf("%b", n)
-
-		for len(rawBinaryStr) < 8 {
-			rawBinaryStr = "0" + rawBinaryStr
-		}
-
-		binaryStr = binaryStr + rawBinaryStr
+		binaryStr = binaryStr + fmt.Sprintf("%08b", n)
 	}
 	return binaryStr
 }
@@ -75,10 +68,16 @@ func AscciStrToBinaryStr(str string) string {
  * Does the XOR operator between two byte array
  * Example: [0x53, 0x4F, 0x4C] ^ [0x3C, 0x18, 0x73] =  [0x6F, 0x57, 0x3F]
  */
-func XorBytesArray(byt1 []byte, byt2 []byte) []byte {
-	bytes := []byte("")
-	for i, n := range byt1 {
-		bytes = append(bytes, n^byt2[i])
+func XorBytesArray(bytes1 []byte, bytes2 []byte) []byte {
+	if len(bytes1) != len(bytes2) {
+		panic("Byte array length mismatch")
+	}
+
+	var bytes = make([]byte, len(bytes1))
+	for i := range bytes1 {
+		byte1 := bytes1[i]
+		byte2 := bytes2[i]
+		bytes[i] = byte1 ^ byte2
 	}
 	return bytes
 }

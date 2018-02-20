@@ -9,16 +9,16 @@ import (
 
 var _ = Describe("crypto", func() {
 	Describe("CipherMessage", func() {
-		It("Debe poder cifrar un mensaje", func() {
+		It("ciphers a message", func() {
 			const originalMessage = "SOL"
 			const randomKey = "001111000001100001110011"
-	
+
 			cipheredMessage := crypto.CipherMessage(originalMessage, randomKey)
 			Expect(cipheredMessage).To(Equal("oW?"))
 		})
 	})
 	Describe("DecipherMessage", func() {
-		It("Debe poder cifrar un mensaje", func() {
+		It("deciphers a message", func() {
 			const cipheredMessage = "[t"
 			const randomKey = "0000111100100001"
 

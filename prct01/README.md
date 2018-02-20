@@ -11,7 +11,7 @@ Implementa en el lenguaje que prefieras el cifrado y descifrado de Vernam según
 
 Utiliza código ASCII para pasar de letras a bytes y viceversa, cuando se trate de caracteres imprimibles.
 
-**Ejemplo 1**:
+**Cifrado**:
 * Entrada:
 * Mensaje original: SOL
 * Salida:
@@ -23,7 +23,7 @@ Utiliza código ASCII para pasar de letras a bytes y viceversa, cuando se trate 
 * Mensaje cifrado en binario: 011011110101011100111111
 * Mensaje cifrado: oW?
 
-**Ejemplo 2**:
+**Descifrado**:
 
 * Entrada:
 * Mensaje cifrado: [t

@@ -58,7 +58,7 @@ func BytesToBinaryStr(bytes []byte) string {
  * Converts a Byte array to its corresponding ASCII string
  * Example: [ 0x53, 0x4F, 0x4C ] => "SOL"
  */
-func BytesToAscii(bytes []byte) string {
+func BytesToAsciiStr(bytes []byte) string {
 	return string(bytes[:len(bytes)])
 }
 

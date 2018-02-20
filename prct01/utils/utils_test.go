@@ -3,7 +3,7 @@ package utils_test
 import (
 	"testing"
 
-	"github.com/danielramosacosta/seguridad/prct01/src"
+	"github.com/danielramosacosta/seguridad/prct01/utils"
 )
 
 func TestAscciStrToBytes(t *testing.T) {
@@ -42,10 +42,10 @@ func TestBytesToBinaryStr(t *testing.T) {
 	}
 }
 
-func TestBytesToAscii(t *testing.T) {
+func TestBytesToAsciiStr(t *testing.T) {
 	bytes := []byte{0x53, 0x4F, 0x4C}
 	const expectedStr = "SOL"
-	resStr := utils.BytesToAscii(bytes)
+	resStr := utils.BytesToAsciiStr(bytes)
 
 	if expectedStr != resStr {
 		t.Errorf("Strings doesn't match %s != 0x%s", expectedStr, resStr)

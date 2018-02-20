@@ -13,25 +13,25 @@ Utiliza código ASCII para pasar de letras a bytes y viceversa, cuando se trate 
 
 **Cifrado**:
 * Entrada:
-* Mensaje original: SOL
+* Mensaje original: `SOL`
 * Salida:
-* Mensaje original en binario: 010100110100111101001100
-* Longitud del mensaje binario: 24
+* Mensaje original en binario: `010100110100111101001100`
+* Longitud del mensaje binario: `24`
 * Entrada:
-* Clave aleatoria: 001111000001100001110011
+* Clave aleatoria: `001111000001100001110011`
 * Salida:
-* Mensaje cifrado en binario: 011011110101011100111111
-* Mensaje cifrado: oW?
+* Mensaje cifrado en binario: `011011110101011100111111`
+* Mensaje cifrado: `oW?`
 
 **Descifrado**:
 
 * Entrada:
-* Mensaje cifrado: [t
+* Mensaje cifrado: `[t`
 * Salida:
-* Mensaje cifrado en binario: 0101101101110100
-* Longitud del mensaje binario: 16
+* Mensaje cifrado en binario: `0101101101110100`
+* Longitud del mensaje binario: `16`
 * Entrada:
-* Clave aleatoria: 0000111100100001
+* Clave aleatoria: `0000111100100001`
 * Salida:
-* Mensaje original en binario: 0101010001010101
-* Mensaje original: TU
+* Mensaje original en binario: `0101010001010101`
+* Mensaje original: `TU`

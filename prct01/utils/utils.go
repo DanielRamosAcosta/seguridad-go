@@ -22,16 +22,15 @@ func BinaryStrToBytes(str string) []byte {
 		panic("Malformed binary string")
 	}
 
-	bytes := []byte("")
+	numberBytes := len(str) / 8
+	bytes := make([]byte, numberBytes)
 
-	for i := 0; i < len(str); i += 8 {
-		substr := str[i : i+8]
-
-		if i, err := strconv.ParseInt(substr, 2, 64); err != nil {
-			panic(err)
-		} else {
-			bytes = append(bytes, byte(i))
-		}
+	for i := 0; i < numberBytes; i++ {
+		startIndex := i * 8
+		endIndex := (i + 1) * 8
+		substr := str[startIndex:endIndex]
+		numberByte, _ := strconv.ParseInt(substr, 2, 64)
+		bytes[i] = byte(numberByte)
 	}
 	return bytes
 }
@@ -41,9 +40,10 @@ func BinaryStrToBytes(str string) []byte {
  * Example: [ 0x5C, 0x4F, 0x9A ] => "010111000100111110011010"
  */
 func BytesToBinaryStr(bytes []byte) string {
-	var binaryStr = ""
+	var binaryStr string
+
 	for _, n := range bytes {
-		var rawBinaryStr = fmt.Sprintf("%b", n)
+		rawBinaryStr := fmt.Sprintf("%b", n)
 
 		for len(rawBinaryStr) < 8 {
 			rawBinaryStr = "0" + rawBinaryStr

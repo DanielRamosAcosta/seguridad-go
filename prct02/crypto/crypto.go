@@ -1,54 +1,47 @@
 package crypto
 
 import (
-	"log"
-	"github.com/danielramosacosta/seguridad/prct01/utils"
+	"bytes"
+
+	"github.com/danielramosacosta/seguridad/prct02/utils"
 )
 
 /**
- * Converts an ASCII string to a Byte array.
- * Example: "SOL", "001111000001100001110011" => "oW?"
+ * Ciphers the given string using Vigenere's cipher
+ * Example: "ESTE MENSAJE SE AUTODESTRUIRA", "MISION" => "QALMARZASRSFQIMBCQQALZIVDI"
  */
-func CipherMessage(messageStr string, randomKeyBinaryStr string) string {
-	messageBytes := utils.AscciStrToBytes(messageStr)
-	randomKeyBytes := utils.BinaryStrToBytes(randomKeyBinaryStr)
+func CipherMessage(originalMessage string, key string) string {
+	var buffer bytes.Buffer
 
-	log.Println("Entrada:")
-	log.Println("Mensaje original:", messageStr)
-	log.Println("Mensaje original en binario:", utils.BytesToBinaryStr(messageBytes))
-	log.Println("Entrada:")
-	log.Println("Clave aleatoria:", randomKeyBinaryStr)
+	for i, c := range utils.CleanString(originalMessage) {
+		keyIndex := i % len(key)
+		keyChar := key[keyIndex]
+		originalChar := byte(c)
 
-	cipheredMessageBytes := utils.XorBytesArray(messageBytes, randomKeyBytes)
-	cipheredMessageStr := utils.BytesToAsciiStr(cipheredMessageBytes)
+		finalChar := ((originalChar + keyChar) % 26) + 0x41
 
-	log.Println("Mensaje cifrado en binario:", utils.BytesToBinaryStr(cipheredMessageBytes))
-	log.Println("Mensaje cifrado:", cipheredMessageStr)
-	return cipheredMessageStr
+		buffer.WriteString(string(finalChar))
+	}
+
+	return buffer.String()
 }
 
 /**
- * Converts an ASCII string to a Byte array.
- * Example: "[t", "0000111100100001" => "TU"
+ * Deciphers the given string using Vigenere's cipher
+ * Example: "QALMARZASRSFQIMBCQQALZIVDI", "MISION" => "ESTEMENSAJESEAUTODESTRUIRA"
  */
-func DecipherMessage(cipheredMessage string, randomKeyBinaryStr string) string {
-	cipheredMessageBytes := utils.AscciStrToBytes(cipheredMessage)
-	randomKeyBytes := utils.BinaryStrToBytes(randomKeyBinaryStr)
+func DecipherMessage(cipheredMessage string, key string) string {
+	var buffer bytes.Buffer
 
-	log.Println("Entrada:")
-	log.Println("Mensaje cifrado:", cipheredMessage)
-	log.Println("Salida:")
-	log.Println("Mensaje cifrado en binario:", utils.BytesToBinaryStr(cipheredMessageBytes))
-	log.Println("Longitud del mensaje binario:", len(cipheredMessageBytes)*8)
-	log.Println("Entrada:")
-	log.Println("Clave aleatoria:", randomKeyBinaryStr)
+	for i, c := range utils.CleanString(cipheredMessage) {
+		keyIndex := i % len(key)
+		keyChar := key[keyIndex]
+		originalChar := byte(c)
 
-	originalMessageBytes := utils.XorBytesArray(cipheredMessageBytes, randomKeyBytes)
-	originalMessageStr := utils.BytesToAsciiStr(originalMessageBytes)
+		finalChar := ((originalChar - keyChar + 26) % 26) + 0x41
 
-	log.Println("Salida:")
-	log.Println("Mensaje original en binario:", utils.BytesToBinaryStr(originalMessageBytes))
-	log.Println("Mensaje original en binario:", originalMessageStr)
+		buffer.WriteString(string(finalChar))
+	}
 
-	return originalMessageStr
+	return buffer.String()
 }

@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"bytes"
 	"strings"
 )
 
@@ -9,13 +10,13 @@ import (
  * Example: "-this IS NOT cleanñ-" => "THISISNOTCLEAN"
  */
 func CleanString(str string) string {
-	var clean string
+	var buffer bytes.Buffer
 
 	for _, c := range strings.ToUpper(str) {
 		if 65 <= c && c <= 90 {
-			clean = clean + string(c)
+			buffer.WriteRune(c)
 		}
 	}
 
-	return clean
+	return buffer.String()
 }

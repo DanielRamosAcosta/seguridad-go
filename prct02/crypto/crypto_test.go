@@ -4,26 +4,26 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/danielramosacosta/seguridad/prct01/crypto"
+	"github.com/danielramosacosta/seguridad/prct02/crypto"
 )
 
 var _ = Describe("crypto", func() {
 	Describe("CipherMessage", func() {
 		It("ciphers a message", func() {
-			const originalMessage = "SOL"
-			const randomKey = "001111000001100001110011"
+			const originalMessage = "ESTE MENSAJE SE AUTODESTRUIRA"
+			const key = "MISION"
 
-			cipheredMessage := crypto.CipherMessage(originalMessage, randomKey)
-			Expect(cipheredMessage).To(Equal("oW?"))
+			cipheredMessage := crypto.CipherMessage(originalMessage, key)
+			Expect(cipheredMessage).To(Equal("QALMARZASRSFQIMBCQQALZIVDI"))
 		})
 	})
 	Describe("DecipherMessage", func() {
 		It("deciphers a message", func() {
-			const cipheredMessage = "[t"
-			const randomKey = "0000111100100001"
+			const cipheredMessage = "QALMARZASRSFQIMBCQQALZIVDI"
+			const key = "MISION"
 
-			originalMessage := crypto.DecipherMessage(cipheredMessage, randomKey)
-			Expect(originalMessage).To(Equal("TU"))
+			originalMessage := crypto.DecipherMessage(cipheredMessage, key)
+			Expect(originalMessage).To(Equal("ESTEMENSAJESEAUTODESTRUIRA"))
 		})
 	})
 })

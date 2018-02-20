@@ -24,9 +24,9 @@ Dicho de otra forma, dada la clave k<sub>1</sub> k<sub>2</sub>...k<sub>r</sub> i
   |----------|----------|----------|----------|------|
   | `ESTEME` | `NSAJES` | `EAUTOD` | `ESTRUI` | `RA` |
   | `MISION` | `MISION` | `MISION` | `MISION` | `MI` |
-  | `QALMAR` | `ZASRSF` | `QIMBCQ` | `QALIZV` | `DI` |
+  | `QALMAR` | `ZASRSF` | `QIMBCQ` | `QALZIV` | `DI` |
 
-* Texto cirfrado: `QALMARZASRSFQIMBCQQALIZVDI`
+* Texto cirfrado: `QALMARZASRSFQIMBCQQALZIVDI`
 
 ## Desarrollo
 

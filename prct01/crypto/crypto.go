@@ -1,8 +1,7 @@
 package crypto
 
 import (
-	"fmt"
-
+	"log"
 	"github.com/danielramosacosta/seguridad/prct01/utils"
 )
 
@@ -14,17 +13,17 @@ func CipherMessage(messageStr string, randomKeyBinaryStr string) string {
 	messageBytes := utils.AscciStrToBytes(messageStr)
 	randomKeyBytes := utils.BinaryStrToBytes(randomKeyBinaryStr)
 
-	fmt.Println("Entrada:")
-	fmt.Println("Mensaje original:", messageStr)
-	fmt.Println("Mensaje original en binario:", utils.BytesToBinaryStr(messageBytes))
-	fmt.Println("Entrada:")
-	fmt.Println("Clave aleatoria:", randomKeyBinaryStr)
+	log.Println("Entrada:")
+	log.Println("Mensaje original:", messageStr)
+	log.Println("Mensaje original en binario:", utils.BytesToBinaryStr(messageBytes))
+	log.Println("Entrada:")
+	log.Println("Clave aleatoria:", randomKeyBinaryStr)
 
 	cipheredMessageBytes := utils.XorBytesArray(messageBytes, randomKeyBytes)
 	cipheredMessageStr := utils.BytesToAsciiStr(cipheredMessageBytes)
 
-	fmt.Println("Mensaje cifrado en binario:", utils.BytesToBinaryStr(cipheredMessageBytes))
-	fmt.Println("Mensaje cifrado:", cipheredMessageStr)
+	log.Println("Mensaje cifrado en binario:", utils.BytesToBinaryStr(cipheredMessageBytes))
+	log.Println("Mensaje cifrado:", cipheredMessageStr)
 	return cipheredMessageStr
 }
 
@@ -36,20 +35,20 @@ func DecipherMessage(cipheredMessage string, randomKeyBinaryStr string) string {
 	cipheredMessageBytes := utils.AscciStrToBytes(cipheredMessage)
 	randomKeyBytes := utils.BinaryStrToBytes(randomKeyBinaryStr)
 
-	fmt.Println("Entrada:")
-	fmt.Println("Mensaje cifrado:", cipheredMessage)
-	fmt.Println("Salida:")
-	fmt.Println("Mensaje cifrado en binario:", utils.BytesToBinaryStr(cipheredMessageBytes))
-	fmt.Println("Longitud del mensaje binario:", len(cipheredMessageBytes)*8)
-	fmt.Println("Entrada:")
-	fmt.Println("Clave aleatoria:", randomKeyBinaryStr)
+	log.Println("Entrada:")
+	log.Println("Mensaje cifrado:", cipheredMessage)
+	log.Println("Salida:")
+	log.Println("Mensaje cifrado en binario:", utils.BytesToBinaryStr(cipheredMessageBytes))
+	log.Println("Longitud del mensaje binario:", len(cipheredMessageBytes)*8)
+	log.Println("Entrada:")
+	log.Println("Clave aleatoria:", randomKeyBinaryStr)
 
 	originalMessageBytes := utils.XorBytesArray(cipheredMessageBytes, randomKeyBytes)
 	originalMessageStr := utils.BytesToAsciiStr(originalMessageBytes)
 
-	fmt.Println("Salida:")
-	fmt.Println("Mensaje original en binario:", utils.BytesToBinaryStr(originalMessageBytes))
-	fmt.Println("Mensaje original en binario:", originalMessageStr)
+	log.Println("Salida:")
+	log.Println("Mensaje original en binario:", utils.BytesToBinaryStr(originalMessageBytes))
+	log.Println("Mensaje original en binario:", originalMessageStr)
 
 	return originalMessageStr
 }

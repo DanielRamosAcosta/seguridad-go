@@ -1,31 +1,29 @@
 package crypto_test
 
 import (
-	"testing"
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
 
 	"github.com/danielramosacosta/seguridad/prct01/crypto"
 )
 
-func TestCipherMessage(t *testing.T) {
-	const message = "SOL"
-	const randomKey = "001111000001100001110011"
-	const expetedOutput = "oW?"
+var _ = Describe("crypto", func() {
+	Describe("CipherMessage", func() {
+		It("Debe poder cifrar un mensaje", func() {
+			const originalMessage = "SOL"
+			const randomKey = "001111000001100001110011"
+	
+			cipheredMessage := crypto.CipherMessage(originalMessage, randomKey)
+			Expect(cipheredMessage).To(Equal("oW?"))
+		})
+	})
+	Describe("DecipherMessage", func() {
+		It("Debe poder cifrar un mensaje", func() {
+			const cipheredMessage = "[t"
+			const randomKey = "0000111100100001"
 
-	cipheredMessage := crypto.CipherMessage(message, randomKey)
-
-	if cipheredMessage != expetedOutput {
-		t.Errorf("Results doesn't match %s != %s", expetedOutput, cipheredMessage)
-	}
-}
-
-func TestDecipherMessage(t *testing.T) {
-	const cipheredMessage = "[t"
-	const randomKey = "0000111100100001"
-	const expectedMessage = "TU"
-
-	resultMessage := crypto.DecipherMessage(cipheredMessage, randomKey)
-
-	if resultMessage != expectedMessage {
-		t.Errorf("Results doesn't match %s != %s", resultMessage, expectedMessage)
-	}
-}
+			originalMessage := crypto.DecipherMessage(cipheredMessage, randomKey)
+			Expect(originalMessage).To(Equal("TU"))
+		})
+	})
+})

@@ -34,11 +34,11 @@ var _ = Describe("Utils", func() {
 			Expect(resStr).To(Equal(expectedStr))
 		})
 	})
-	Describe("BytesToAsciiStr", func() {
+	Describe("BytesToASCIIStr", func() {
 		It("converts byte array into its ascii representation", func() {
 			bytes := []byte{0x53, 0x4F, 0x4C}
 			const expectedStr = "SOL"
-			resStr := utils.BytesToAsciiStr(bytes)
+			resStr := utils.BytesToASCIIStr(bytes)
 
 			Expect(resStr).To(Equal(expectedStr))
 		})

@@ -6,10 +6,8 @@ import (
 	"github.com/danielramosacosta/seguridad/prct02/utils"
 )
 
-/**
- * Ciphers the given string using Vigenere's cipher
- * Example: "ESTE MENSAJE SE AUTODESTRUIRA", "MISION" => "QALMARZASRSFQIMBCQQALZIVDI"
- */
+// CipherMessage ciphers the given string using Vigenere's cipher
+// Example: "ESTE MENSAJE SE AUTODESTRUIRA", "MISION" => "QALMARZASRSFQIMBCQQALZIVDI"
 func CipherMessage(originalMessage string, key string) string {
 	var buffer bytes.Buffer
 
@@ -26,10 +24,8 @@ func CipherMessage(originalMessage string, key string) string {
 	return buffer.String()
 }
 
-/**
- * Deciphers the given string using Vigenere's cipher
- * Example: "QALMARZASRSFQIMBCQQALZIVDI", "MISION" => "ESTEMENSAJESEAUTODESTRUIRA"
- */
+// DecipherMessage deciphers the given string using Vigenere's cipher
+// Example: "QALMARZASRSFQIMBCQQALZIVDI", "MISION" => "ESTEMENSAJESEAUTODESTRUIRA"
 func DecipherMessage(cipheredMessage string, key string) string {
 	var buffer bytes.Buffer
 

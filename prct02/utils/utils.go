@@ -5,10 +5,8 @@ import (
 	"strings"
 )
 
-/**
- * Cleans the given string.
- * Example: "-this IS NOT cleanñ-" => "THISISNOTCLEAN"
- */
+// CleanString cleans the given string.
+// Example: "-this IS NOT cleanñ-" => "THISISNOTCLEAN"
 func CleanString(str string) string {
 	var buffer bytes.Buffer
 

@@ -1,4 +1,4 @@
-package crypto
+package rc4
 
 import (
 	"fmt"

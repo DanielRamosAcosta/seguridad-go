@@ -1,4 +1,4 @@
-# Prácticas de Seguridad en Sistemas Informáticos
+# ~~Algunas~~ Prácticas de Seguridad en Sistemas Informáticos
 
 > Reescritas en Go para aprender el lenguaje
 

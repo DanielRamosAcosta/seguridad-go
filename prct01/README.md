@@ -38,7 +38,7 @@ Utiliza código ASCII para pasar de letras a bytes y viceversa, cuando se trate 
 * Mensaje original en binario: `0101010001010101`
 * Mensaje original: `TU`
 
-## Desarrollo
+## Implementación
 
 Para ejecutar las pruebas:
 

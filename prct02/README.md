@@ -28,7 +28,7 @@ Dicho de otra forma, dada la clave k<sub>1</sub> k<sub>2</sub>...k<sub>r</sub> i
 
 * Texto cirfrado: `QALMARZASRSFQIMBCQQALZIVDI`
 
-## Desarrollo
+## Implementación
 
 Para ejecutar las pruebas:
 

@@ -28,9 +28,23 @@ Salida:
 
 | Generación de secuencia cifrante y texto cifrado   | En Binario |
 |----------------------------------------------------|------------|
-| Byte 1 de secuencia cifrante: Salida= `S[88]= 144` | 10010000 |
-| Byte 1 de texto original: Entrada: `M[1]= 1`       | 00000001 |
-| Byte 1 de texto cifrado: Salida= `C[1]= 145`       | 10010001 |
-| Byte 2 de secuencia cifrante: Salida= `S[182]= 14` | 00001110 |
-| Byte 2 de texto original: Entrada: `M[2]= 34`      | 00100010 |
-| Byte 2 de texto cifrado: Salida= `C[2]= 44`        | 00101100 |
+| Byte 1 de secuencia cifrante: Salida= `S[88]= 144` | 10010000   |
+| Byte 1 de texto original: Entrada: `M[1]= 1`       | 00000001   |
+| Byte 1 de texto cifrado: Salida= `C[1]= 145`       | 10010001   |
+| Byte 2 de secuencia cifrante: Salida= `S[182]= 14` | 00001110   |
+| Byte 2 de texto original: Entrada: `M[2]= 34`      | 00100010   |
+| Byte 2 de texto cifrado: Salida= `C[2]= 44`        | 00101100   |
+
+## Implementación
+
+Para ejecutar las pruebas:
+
+```
+ginkgo './...'
+```
+
+Para ejecutar el programa principal
+
+```
+go run ./cmd/main.go
+```

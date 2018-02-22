@@ -1,4 +1,4 @@
-package rc4_test
+package prct03_test
 
 import (
 	"io/ioutil"
@@ -9,8 +9,8 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestCrypto(t *testing.T) {
+func TestPrct03(t *testing.T) {
 	RegisterFailHandler(Fail)
 	log.SetOutput(ioutil.Discard)
-	RunSpecs(t, "[prct03] RC4 Suite")
+	RunSpecs(t, "prct03 Suite")
 }

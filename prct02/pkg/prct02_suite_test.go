@@ -1,4 +1,4 @@
-package crypto_test
+package prct02_test
 
 import (
 	"io/ioutil"
@@ -9,8 +9,8 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestCrypto(t *testing.T) {
+func TestPrct02(t *testing.T) {
 	RegisterFailHandler(Fail)
 	log.SetOutput(ioutil.Discard)
-	RunSpecs(t, "[prct02] Crypto Suite")
+	RunSpecs(t, "prct02 Suite")
 }

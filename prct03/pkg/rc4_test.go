@@ -1,17 +1,17 @@
-package rc4_test
+package prct03_test
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/danielramosacosta/seguridad/prct03/rc4"
+	"github.com/danielramosacosta/seguridad/prct03/pkg"
 )
 
 var _ = Describe("RC4", func() {
 	Describe("KeySchedulingAlgorithm", func() {
 		It("initializes f, S and K", func() {
 			seed := []byte{0x02, 0x05}
-			S := rc4.KeySchedulingAlgorithm(seed)
+			S := prct03.KeySchedulingAlgorithm(seed)
 
 			Expect(S).To(Equal([]byte{
 				0x02, 0x85, 0x0A, 0x4D, 0xCC, 0x22, 0xBB, 0x36, 0x33, 0x47, 0x49, 0x62, 0x93, 0x79, 0xCD, 0xEB,
@@ -34,7 +34,7 @@ var _ = Describe("RC4", func() {
 		})
 		It("initializes f, S and K", func() {
 			seed := []byte{0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF}
-			S := rc4.KeySchedulingAlgorithm(seed)
+			S := prct03.KeySchedulingAlgorithm(seed)
 
 			expectedS := []byte{
 				0x01, 0x38, 0x6B, 0x3D, 0xAC, 0x47, 0xE5, 0x1B, 0x8B, 0x10, 0xE8, 0xD1, 0x66, 0x26, 0xF9, 0xE7,
@@ -63,12 +63,12 @@ var _ = Describe("RC4", func() {
 			seed := []byte{0x02, 0x05}
 			i := byte(0)
 			f := byte(0)
-			S := rc4.KeySchedulingAlgorithm(seed)
+			S := prct03.KeySchedulingAlgorithm(seed)
 
-			generatedByte, i, f, S := rc4.PseudoRandomGenerationAlgorithm(i, f, S)
+			generatedByte, i, f, S := prct03.PseudoRandomGenerationAlgorithm(i, f, S)
 			Expect(generatedByte).To(Equal(byte(0x90)))
 
-			generatedByte, i, f, S = rc4.PseudoRandomGenerationAlgorithm(i, f, S)
+			generatedByte, i, f, S = prct03.PseudoRandomGenerationAlgorithm(i, f, S)
 			Expect(generatedByte).To(Equal(byte(0x0E)))
 		})
 	})

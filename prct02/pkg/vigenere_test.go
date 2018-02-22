@@ -1,10 +1,10 @@
-package crypto_test
+package prct02_test
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/danielramosacosta/seguridad/prct02/crypto"
+	"github.com/danielramosacosta/seguridad/prct02/pkg"
 )
 
 var _ = Describe("crypto", func() {
@@ -13,7 +13,7 @@ var _ = Describe("crypto", func() {
 			const originalMessage = "ESTE MENSAJE SE AUTODESTRUIRA"
 			const key = "MISION"
 
-			cipheredMessage := crypto.CipherMessage(originalMessage, key)
+			cipheredMessage := prct02.CipherMessage(originalMessage, key)
 			Expect(cipheredMessage).To(Equal("QALMARZASRSFQIMBCQQALZIVDI"))
 		})
 	})
@@ -22,7 +22,7 @@ var _ = Describe("crypto", func() {
 			const cipheredMessage = "QALMARZASRSFQIMBCQQALZIVDI"
 			const key = "MISION"
 
-			originalMessage := crypto.DecipherMessage(cipheredMessage, key)
+			originalMessage := prct02.DecipherMessage(cipheredMessage, key)
 			Expect(originalMessage).To(Equal("ESTEMENSAJESEAUTODESTRUIRA"))
 		})
 	})

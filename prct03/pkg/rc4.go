@@ -1,4 +1,4 @@
-package rc4
+package prct03
 
 import (
 	"fmt"

@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/danielramosacosta/seguridad/prct03/rc4"
+	"github.com/danielramosacosta/seguridad/prct03/pkg"
 )
 
 func main() {
@@ -11,14 +11,14 @@ func main() {
 	message := []byte{0x01, 0x22}
 
 	log.Println("Inicialización:")
-	S := rc4.KeySchedulingAlgorithm(seed)
+	S := prct03.KeySchedulingAlgorithm(seed)
 
 	i := byte(0)
 	f := byte(0)
 	var generatedByte byte
 
 	for index, c := range message {
-		generatedByte, i, f, S = rc4.PseudoRandomGenerationAlgorithm(i, f, S)
+		generatedByte, i, f, S = prct03.PseudoRandomGenerationAlgorithm(i, f, S)
 		cipheredText := c ^ generatedByte
 
 		log.Printf("Byte %d de texto original: Entrada: M[%d]=%d \t\t\t%08b", index+1, index+1, c, c)

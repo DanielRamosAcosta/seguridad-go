@@ -1,9 +1,7 @@
-package crypto
+package prct02
 
 import (
 	"bytes"
-
-	"github.com/danielramosacosta/seguridad/prct02/utils"
 )
 
 // CipherMessage ciphers the given string using Vigenere's cipher
@@ -11,7 +9,7 @@ import (
 func CipherMessage(originalMessage string, key string) string {
 	var buffer bytes.Buffer
 
-	for i, c := range utils.CleanString(originalMessage) {
+	for i, c := range CleanString(originalMessage) {
 		keyIndex := i % len(key)
 		keyChar := key[keyIndex]
 		originalChar := byte(c)
@@ -29,7 +27,7 @@ func CipherMessage(originalMessage string, key string) string {
 func DecipherMessage(cipheredMessage string, key string) string {
 	var buffer bytes.Buffer
 
-	for i, c := range utils.CleanString(cipheredMessage) {
+	for i, c := range CleanString(cipheredMessage) {
 		keyIndex := i % len(key)
 		keyChar := key[keyIndex]
 		originalChar := byte(c)

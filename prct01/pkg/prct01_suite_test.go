@@ -9,7 +9,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestCrypto(t *testing.T) {
+func TestPrct01(t *testing.T) {
 	RegisterFailHandler(Fail)
 	log.SetOutput(ioutil.Discard)
 	RunSpecs(t, "prct01 Suite")

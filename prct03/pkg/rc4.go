@@ -5,7 +5,22 @@ import (
 	"log"
 )
 
-func KeySchedulingAlgorithm(seed []byte) []byte {
+// RC4 creates a pseudo random generator using the RC4 stream cipher algorithm
+type RC4 struct {
+	S []byte
+	i uint
+	f uint
+}
+
+// New creates a new generator using the given seed
+func New(seed []byte) RC4 {
+	g := RC4{S: []byte{}, i: 0, f: 0}
+	g.S = g.KeySchedulingAlgorithm(seed)
+	return g
+}
+
+// KeySchedulingAlgorithm initializates the S array
+func (g *RC4) KeySchedulingAlgorithm(seed []byte) []byte {
 	var f uint
 	var S []byte
 	var K []byte
@@ -32,17 +47,16 @@ func KeySchedulingAlgorithm(seed []byte) []byte {
 	return S
 }
 
-func PseudoRandomGenerationAlgorithm(_i byte, _f byte, _S []byte) (byte, byte, byte, []byte) {
-	S := make([]byte, len(_S))
-	copy(S, _S)
+// PseudoRandomGenerationAlgorithm generates a new random byte
+func (g *RC4) PseudoRandomGenerationAlgorithm() byte {
+	g.i = (g.i + 1) % 256
+	g.f = (g.f + uint(g.S[g.i])) % 256
 
-	var i = (uint(_i) + 1) % 256
-	var f = (uint(_f) + uint(S[i])) % 256
+	g.S[g.i], g.S[g.f] = g.S[g.f], g.S[g.i]
+	t := (uint(g.S[g.i]) + uint(g.S[g.f])) % 256
 
-	S[i], S[f] = S[f], S[i]
-	t := (uint(S[i]) + uint(S[f])) % 256
+	format := "Byte %d de secuencia cifrante: Salida = S[%d]=%d \t\t%08b"
+	log.Printf(format, g.i, t, g.S[t], g.S[t])
 
-	log.Printf("Byte %d de secuencia cifrante: Salida = S[%d]=%d \t\t%08b", i, t, S[t], S[t])
-
-	return S[t], byte(i), byte(f), S
+	return g.S[t]
 }

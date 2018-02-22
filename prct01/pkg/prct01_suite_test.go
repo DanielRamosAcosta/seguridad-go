@@ -1,4 +1,4 @@
-package crypto_test
+package prct01
 
 import (
 	"io/ioutil"
@@ -12,5 +12,5 @@ import (
 func TestCrypto(t *testing.T) {
 	RegisterFailHandler(Fail)
 	log.SetOutput(ioutil.Discard)
-	RunSpecs(t, "[prct01] Crypto Suite")
+	RunSpecs(t, "prct01 Suite")
 }

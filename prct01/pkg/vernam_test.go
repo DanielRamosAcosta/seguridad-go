@@ -1,19 +1,19 @@
-package crypto_test
+package prct01_test
 
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/danielramosacosta/seguridad/prct01/crypto"
+	. "github.com/danielramosacosta/seguridad/prct01/pkg"
 )
 
-var _ = Describe("crypto", func() {
+var _ = Describe("vernam", func() {
 	Describe("CipherMessage", func() {
 		It("ciphers a message", func() {
 			const originalMessage = "SOL"
 			const randomKey = "001111000001100001110011"
 
-			cipheredMessage := crypto.CipherMessage(originalMessage, randomKey)
+			cipheredMessage := CipherMessage(originalMessage, randomKey)
 			Expect(cipheredMessage).To(Equal("oW?"))
 		})
 	})
@@ -22,7 +22,7 @@ var _ = Describe("crypto", func() {
 			const cipheredMessage = "[t"
 			const randomKey = "0000111100100001"
 
-			originalMessage := crypto.DecipherMessage(cipheredMessage, randomKey)
+			originalMessage := DecipherMessage(cipheredMessage, randomKey)
 			Expect(originalMessage).To(Equal("TU"))
 		})
 	})

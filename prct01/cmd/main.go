@@ -3,11 +3,11 @@ package main
 import (
 	"log"
 
-	"github.com/danielramosacosta/seguridad/prct01/crypto"
+	"github.com/danielramosacosta/seguridad/prct01/pkg"
 )
 
 func main() {
-	crypto.CipherMessage("SOL", "001111000001100001110011")
+	prct01.CipherMessage("SOL", "001111000001100001110011")
 	log.Println(" ------- ")
-	crypto.DecipherMessage("[t", "0000111100100001")
+	prct01.DecipherMessage("[t", "0000111100100001")
 }
